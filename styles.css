@@ -1,0 +1,135 @@
+body{
+ background-color: #ededed;;
+}
+h1{
+ font-size: 48px;
+}
+
+h2{
+  font-size: 30px;
+}
+
+h3{
+ font-size: 30px;
+}
+
+p{
+ font-size: 25px;
+}
+
+.title{
+ font-size: 30px;
+ margin-bottom: 30px;
+}
+
+.author{
+ font-size: 30px;
+ margin-bottom: 30px;
+}
+
+.pages{
+ font-size: 25px;
+ margin-bottom: 30px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .book-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .newBook{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  input[type = "text"]{
+    width: 150px;
+    height: 20px;
+  }
+
+  .addBook{
+    font-size: 28px;
+    width: 200px;
+    height: 40px;
+  }
+  
+  .books{
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 30px;
+  }
+  .card{
+   width: 300px;
+   text-align: center;
+   border: 1px solid black;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   height: 300px;
+   margin-top: 30px;
+  
+  }
+
+  h2{
+   font-size: 30px;
+  }
+
+  nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .deleteBtn, .isRead{
+    display: block;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
