@@ -1,38 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>Library</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="styles.css">
+<html lang = "eng">
+ <head>
+ <title>Library</title>
+ <meta charset="UTF-8">
+ <link rel = "stylesheet" href="styles.css">
+ </head>
+ <body>
+   <header>
+    <h1>Library</h1>
+   </header>
+   <nav>
 
-<nav class="nav">
- <h1>Library</h1>
- <button class = "addBook">Add Book</button>
-</nav>
-<body>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-    
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">X</span>
-        <div class = "newBook">
-        <h3>New Book</h3>
-        <input type = "text" name = "title" id = "titleInput" placeholder="Title">
-        <input type = "text" name = "author" id = "authorInput" placeholder="Author">
-        <input type = "text" name = "pages" id = "pagesInput" placeholder="Pages">
-        <Label class="label-text">Read?</Label>
-        <input type = "checkbox" name = "read" id = "checkbox" placeholder="read"; />
-        <button class = "addBookBtn">Add Book</button>
+   </nav>
+   <main>
+    <div class = "button">
+     <button class = "addBtn">Add Book</button>
+    </div>
+    <div class = "content">
+     <div class = "modal">
+      <div class = "modal-content">
+        <span class = "close">&times</span>
+         <h1>Add A Book</h1>
+         <input type = "text" placeholder="Enter the Title" class = "title">
+         <input type="text" placeholder="Enter the Author" class = "author">
+         <input type = "text" placeholder="Enter the number of pages" class = "pages">
+         <input type = "checkbox" class = "isRead">
+         <button type = "button" class = "add">Add Book</button>
       </div>
+     </div>
     </div>
-    </div>
-
-    <div class = "books">
-
-    </div>
-
-</body>
-
-<script src="app.js"></script>
+   </main>
+ </body>
+ <script src = "app.js"></script>
 </html>

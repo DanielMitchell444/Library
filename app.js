@@ -1,163 +1,92 @@
-let addBookBtns = document.querySelector(".addBook");
-let addNewBook = document.querySelector(".addBookBtn");
-let title1 = document.querySelector('#titleInput').value;
-let authorInput = document.querySelector('#authorInput').value;
-let pages = document.querySelector('#pagesInput').value;
-const checkboxes = document.querySelector('input[name="read"]');
-const books = document.querySelector('.books');
-
-let library = [];
-
-function Book(title, author,pages){
-  this.title = title
-  this.author = author
-  this.pages = pages;
- }
+let modal = document.querySelector('.modal');
+let addBtn = document.querySelector('.addBtn');
+let closeBtn = document.querySelector('.close');
+let addBookBtn = document.querySelector('.add');
+let content = document.querySelector('.content')
 
 
 
+let myLibrary = [
+{title: "Book",
+author: "JK-ROWLING",
+pages: "500",
+isRead: true
+ 
+}];
+
+function Book(title, author, pages, isRead){
+ this.title = title;
+ this.author = author;
+ this.pages = pages;
+ this.isRead = isRead;
+}
+
+function openModal(){
+ modal.style.display = "block";
+}
+
+function closeModal(){
+modal.style.display = "none";
+}
+
+function addNewBook(){
+let titleInput = document.querySelector('.title').value;
+let authorInput = document.querySelector('.author').value;
+let pages = document.querySelector('.pages').value;
+let isRead = document.querySelector('.isRead');
+
+const book1 = new Book(titleInput, authorInput, pages, isRead);
+
+let cardDiv = document.createElement('div');
+let title = document.createElement('h1');
+let author = document.createElement('h1');
+let pagesValue = document.createElement('h1');
+let isReadValue = document.createElement('button');
+let removeBtn = document.createElement('button');
+
+cardDiv.classList.add('cardDiv');
+
+title.innerHTML = book1.title;
+author.innerHTML = book1.author;
+pagesValue.innerHTML = book1.pages;
+isReadValue.innerHTML = book1.isRead;
+removeBtn.innerHTML = "Remove Book";
+removeBtn.className = "removeBtn";
+
+cardDiv.appendChild(title);
+cardDiv.appendChild(author);
+cardDiv.appendChild(pagesValue);
+cardDiv.appendChild(isRead);
+cardDiv.appendChild(removeBtn);
+
+content.appendChild(cardDiv);
+
+myLibrary.push(book1);
+
+console.log(myLibrary);
+
+let buttonRemove = document.querySelector('.removeBtn');
+
+buttonRemove.addEventListener('click', (e) => {
+ e.target.parentNode.remove();
+ myLibrary = myLibrary.filter(array => array[1] !== e.target);
+})
 
 
 
-
-  addNewBook.addEventListener('click', (e) => {
-    let title1 = document.querySelector('#titleInput').value;
-    let authorInput = document.querySelector('#authorInput').value;
-    let pages = document.querySelector('#pagesInput').value;
-    let deleteBtn = document.createElement("button");
-    let isRead = document.createElement("button");
-
-    
-    
-   let book = new Book(title1, authorInput, pages)
-   library.push(book);
-   console.log(library)
-
-
-   //Create Card //
-
-   
-   
-   let card = document.createElement("div");
-   let title = document.createElement("h2");
-   let author = document.createElement("h2");
-   let numPages = document.createElement("h2");
-
-
-   card.className = "card";
-
-    localStorage.setItem('card', card);
-
-
-
-   title.textContent = book.title;
-
-   title.style.fontSize = "24px";
-
-   author.textContent =   book.author;
-
-   numPages.textContent =  book.pages;
-
-   deleteBtn.classList.add('deleteBtn');
-
-   deleteBtn.textContent = "Delete Book";
-
-   isRead.textContent = "Read";
-
-   isRead.classList.add('isRead');
-
-   isRead.id = "isRead";
-
-   
-
-  
-
-   //Push the created card on the screen ///
-
-   card.appendChild(title);
-   card.appendChild(author);
-   card.appendChild(numPages);
-   card.appendChild(deleteBtn);
-   card.appendChild(isRead);
-
-   books.appendChild(card);
-
-   
-       //Code for delete button //
-       deleteBtn.addEventListener("click", (event) => {
-        event.target.parentNode.remove();
-  
-        library = library.filter((v) => v[1] !== event.target);
-      });
-  
-      //Code to toggle read button //
-      isRead.addEventListener("click", () => {
-        if (isRead.textContent == "Read") {
-          isRead.textContent = " Not Read";
-        } else {
-          isRead.textContent = "Read";
-        }
-      });
-  
-      //Code for check boxes
-      checkboxes.addEventListener("change", () => {
-        if (document.getElementById("checkbox").checked) {
-          isRead.textContent = "Read";
-          localStorage.setItem('read', isRead)
-        }
-  
-        isRead.textContent = "Not Read";
-      });
 
 }
-   
 
 
+function addBookToLibrary(){
+ myLibrary.forEach(item => {
+  console.log(item);
+ })
+}
 
+addBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+addBookBtn.addEventListener('click', addNewBook);
 
-  )
-
-  
-
-
-  function openModal() {
-    // Get the modal
-    var modal = document.getElementById("myModal");
-  
-    // Get the button that opens the modal
-    var addBookBtn = document.querySelector(".addBook");
-  
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-  
-    // When the user clicks on the button, open the modal
-    addBookBtn.onclick = function () {
-      modal.style.display = "block";
-    };
-  
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
-  
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  }
-
-
-
-
-
-
- 
-
-
-  addBookBtns.addEventListener("click", openModal);
-
-
-
+addBookToLibrary();
 
